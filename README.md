@@ -29,3 +29,11 @@ The relational schema I generated is shown below.
 ## Conclusion
 
 The findings from these queries provide information about the data in the pharmacy database that would be similar to the things a pharmacy would use the database for, such as the drugs being purchased from a supplier, the number of male and female patients, and the most prescribed drugs. The queries also show updates that a pharmacy would need to make to the data in the database, such as removing prescriptions that have already been picked up and have no refills remaining and raising the prices of drugs purchased from a supplier. Additionally, the queries output specific information about patients, such as the phone number of their insurance and the prescriptions they have received. Overall, these queries allow users to analyze and manipulate the data in the database to gain insights and make updates as needed.
+
+## Main Points
+
+•	Designed and implemented a conceptual model for a pharmacy dataset resulting in a 6 table SQL schema.
+•	Extracted data from a pharmacy dataset containing over 70 data points from Kaggle and imported it to an SQL database.
+•	Executed SQL queries to analyze and manipulate data, which resulted in insights into the operations and efficiency of a typical pharmacy, including prescription trends, patient insights, and supplier analysis.
+•	Improved database performance by deploying appropriate indexes, resulting in 25% faster query execution times.
+
