@@ -17,11 +17,13 @@ The data I am given is 6 CSV files that contain information that is needed to op
 ## Conceptual Design
 
 The ER diagram that I generated for the database is shown below.
+
 ![er-diagram](https://github.com/d-pap/pharmacy-database/assets/65932522/137b5f1e-5984-47b5-8781-86bf72a30f1b)
 
 ## Relational Schema
 
 The relational schema I generated is shown below. 
+
 <img width="468" alt="schema" src="https://github.com/d-pap/pharmacy-database/assets/65932522/4a23404d-795c-4d68-9862-6142fc3c1d39">
 
 ## Conclusion
