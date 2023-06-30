@@ -1,0 +1,57 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "INSURANCE" (
+	"name"	TEXT,
+	"phone"	INTEGER,
+	"coPay"	TEXT,
+	PRIMARY KEY("name")
+);
+CREATE TABLE IF NOT EXISTS "SUPPLIER" (
+	"name"	TEXT NOT NULL,
+	"address"	TEXT NOT NULL,
+	"phone"	TEXT NOT NULL,
+	"supID"	INTEGER,
+	PRIMARY KEY("supID")
+);
+CREATE TABLE IF NOT EXISTS "PATIENT" (
+	"firstName"	TEXT NOT NULL,
+	"lastName"	TEXT NOT NULL,
+	"birthdate"	TEXT NOT NULL,
+	"address"	TEXT NOT NULL,
+	"phone"	TEXT NOT NULL,
+	"gender"	TEXT,
+	"insurance"	TEXT,
+	"patientID"	INTEGER,
+	FOREIGN KEY("insurance") REFERENCES "INSURANCE"("name"),
+	PRIMARY KEY("patientID")
+);
+CREATE TABLE IF NOT EXISTS "DOCTOR" (
+	"physID"	INTEGER,
+	"name"	TEXT NOT NULL,
+	"address"	TEXT,
+	"phone"	TEXT NOT NULL,
+	PRIMARY KEY("physID")
+);
+CREATE TABLE IF NOT EXISTS "DRUGS" (
+	"brandName"	TEXT NOT NULL,
+	"genericName"	TEXT NOT NULL,
+	"NDC"	INTEGER,
+	"dosage"	INTEGER,
+	"expDate"	TEXT,
+	"supID"	INTEGER NOT NULL,
+	"purchasePrice"	INTEGER,
+	"sellPrice"	INTEGER,
+	FOREIGN KEY("supID") REFERENCES "SUPPLIER"("supID"),
+	PRIMARY KEY("NDC")
+);
+CREATE TABLE IF NOT EXISTS "PRESCRIPTIONS" (
+	"patientID"	INTEGER NOT NULL,
+	"physID"	INTEGER NOT NULL,
+	"NDC"	INTEGER NOT NULL,
+	"qty"	INTEGER NOT NULL,
+	"days"	INTEGER NOT NULL,
+	"refills"	INTEGER NOT NULL,
+	"status"	INTEGER,
+	FOREIGN KEY("NDC") REFERENCES "DRUGS"("NDC"),
+	FOREIGN KEY("patientID") REFERENCES "PATIENT"("patientID"),
+	FOREIGN KEY("physID") REFERENCES "DOCTOR"("physID")
+);
